@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.29911.84
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transact", "Transact\Transact.csproj", "{1532A9E0-F26A-4B77-B7FB-32FDD7E07692}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DashboardModule", "DashboardModule\DashboardModule.csproj", "{5B145DFC-1CFA-41AA-B1BD-F74756938E12}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransactionModule", "TransactionModule\TransactionModule.csproj", "{E7868E73-6CFA-4F4D-B2A2-ACAAB4C64D78}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{1532A9E0-F26A-4B77-B7FB-32FDD7E07692}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1532A9E0-F26A-4B77-B7FB-32FDD7E07692}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1532A9E0-F26A-4B77-B7FB-32FDD7E07692}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B145DFC-1CFA-41AA-B1BD-F74756938E12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B145DFC-1CFA-41AA-B1BD-F74756938E12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B145DFC-1CFA-41AA-B1BD-F74756938E12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B145DFC-1CFA-41AA-B1BD-F74756938E12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7868E73-6CFA-4F4D-B2A2-ACAAB4C64D78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7868E73-6CFA-4F4D-B2A2-ACAAB4C64D78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7868E73-6CFA-4F4D-B2A2-ACAAB4C64D78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7868E73-6CFA-4F4D-B2A2-ACAAB4C64D78}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
