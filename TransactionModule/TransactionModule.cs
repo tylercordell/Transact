@@ -1,5 +1,6 @@
 ﻿using Prism.Ioc;
 using Prism.Modularity;
+using Prism.Regions;
 
 namespace TransactionModule
 {
@@ -7,12 +8,12 @@ namespace TransactionModule
     {
         public void OnInitialized(IContainerProvider containerProvider)
         {
-            throw new System.NotImplementedException();
+            var regionManager = containerProvider.Resolve<IRegionManager>();
+            // Register views with regions and such here.
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            throw new System.NotImplementedException();
         }
     }
 }
