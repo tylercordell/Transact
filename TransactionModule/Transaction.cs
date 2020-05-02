@@ -18,7 +18,7 @@ namespace TransactionModule
             this.Amount = amount;
         }
 
-        public decimal Amount { get; private set; }
+        public decimal Amount { get; }
 
         public string FormattedAmount => this.Amount.ToString("C");
     }
