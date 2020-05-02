@@ -12,8 +12,8 @@
              d:DataContext="TransactionLogViewModel">
     <DataGrid ItemsSource="{Binding TransactionsCollection}" IsReadOnly="True" AutoGenerateColumns="False">
         <DataGrid.Columns>
-            <DataGridTextColumn Header="Date" />
-            <DataGridTextColumn Header="Description" />
+            <DataGridTextColumn Header="Date" Binding ="{Binding FormattedDate}"/>
+            <DataGridTextColumn Header="Description" Width="*"/>
             <DataGridTextColumn Header="Amount" Binding="{Binding FormattedAmount}" />
                 <DataGridTextColumn Header="Category" />
             <DataGridTextColumn Header ="Type"/>

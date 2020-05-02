@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 
 namespace TransactionModule.ViewModels
 {
@@ -12,8 +13,8 @@ namespace TransactionModule.ViewModels
         public Collection<Transaction> TransactionsCollection => 
             new Collection<Transaction> 
             {
-                new Transaction(26.39m),
-                new Transaction(54.58m)
+                new Transaction(26.39m, DateTime.Now),
+                new Transaction(54.58m, new DateTime(1997, 4, 23))
             };
     }
 }

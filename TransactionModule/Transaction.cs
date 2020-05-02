@@ -11,15 +11,21 @@ namespace TransactionModule
         public Transaction()
         {
             this.Amount = 0.00m;
+            this.Date = DateTime.MinValue;
         }
 
-        public Transaction(decimal amount)
+        public Transaction(decimal amount, DateTime date)
         {
             this.Amount = amount;
+            this.Date = date;
         }
 
         public decimal Amount { get; }
 
         public string FormattedAmount => this.Amount.ToString("C");
+
+        public DateTime Date { get; }
+
+        public string FormattedDate => this.Date.ToShortDateString();
     }
 }
