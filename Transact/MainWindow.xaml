@@ -4,7 +4,17 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Transact"
+        xmlns:regions="http://prismlibrary.com/"
+        xmlns:transactionModule="clr-namespace:TransactionModule;assembly=TransactionModule"
+        xmlns:views="clr-namespace:TransactionModule.Views;assembly=TransactionModule"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid />
+    <TabControl TabStripPlacement="Bottom">
+        <TabItem Header="Dashboard">
+            <regions:Region Name="ApplicationDashboardRegion" />
+        </TabItem>
+        <TabItem Header="Transaction Log">
+            <ContentControl regions:RegionManager.RegionName="ApplicationTransactionLogRegion" />
+        </TabItem>
+    </TabControl>
 </Window>
