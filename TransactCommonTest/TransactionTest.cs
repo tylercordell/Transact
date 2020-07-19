@@ -1,36 +1,98 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TransactCommon;
+using TransactCommon.Enums;
 
-namespace TransactCommon.Test
+namespace TransactCommonTest
 {
     [TestClass]
     public class TransactionTest
     {
         [TestMethod]
-        public void ShouldInitializeWithProperValues()
+        public void ShouldConstructProperlyWithoutParameters()
         {
             var transaction = new Transaction();
 
-            Assert.AreEqual(0.00m, transaction.Amount);
+            Assert.AreEqual(0, transaction.Amount);
             Assert.AreEqual(DateTime.MinValue, transaction.Date);
-
-            var testDate = DateTime.Now;
-            transaction = new Transaction(5.64m, testDate);
-            Assert.AreEqual(5.64m, transaction.Amount);
-            Assert.AreEqual(testDate, transaction.Date);
+            Assert.AreEqual(TransactionType.Expense, transaction.TransactionType);
         }
 
         [TestMethod]
-        public void ShouldReturnProperlyFormattedProperties()
+        public void ShouldConstructProperlyWithParameters()
         {
-            var transaction = new Transaction();
-            Assert.AreEqual("$0.00", transaction.FormattedAmount);
-            Assert.AreEqual(DateTime.MinValue.ToShortDateString(), transaction.FormattedDate);
+            var transaction = new Transaction(56.45m, DateTime.MinValue);
 
-            var testDate = DateTime.Now;
-            transaction = new Transaction(9.41m, testDate);
-            Assert.AreEqual("$9.41", transaction.FormattedAmount);
-            Assert.AreEqual(testDate.ToShortDateString(), transaction.FormattedDate);
+            Assert.AreEqual(56.45m, transaction.Amount);
+            Assert.AreEqual(DateTime.MinValue, transaction.Date);
+            Assert.AreEqual(TransactionType.Income, transaction.TransactionType);
+        }
+
+        [TestMethod]
+        public void ShouldReturnProperlyFormattedZeroAmount()
+        {
+            var transaction = new Transaction(0, DateTime.Now);
+
+            Assert.AreEqual("$0.00", transaction.FormattedAmount);
+        }
+
+        [TestMethod]
+        public void ShouldReturnProperlyFormattedNegativeAmount()
+        {
+            var transaction = new Transaction(-45.69m, DateTime.Now);
+
+            Assert.AreEqual("($45.69)", transaction.FormattedAmount);
+        }
+
+        [TestMethod]
+        public void ShouldReturnProperlyFormattedPositiveAmount()
+        {
+            var transaction = new Transaction(56.45m, DateTime.Now);
+
+            Assert.AreEqual("$56.45", transaction.FormattedAmount);
+        }
+
+        [TestMethod]
+        public void ShouldReturnProperlyFormattedDate()
+        {
+            var transaction = new Transaction(50m, DateTime.MinValue);
+
+            Assert.AreEqual(DateTime.MinValue.ToShortDateString(), transaction.FormattedDate);
+        }
+
+        [TestMethod]
+        public void ShouldSetTransactionTypeToIncome()
+        {
+            var transaction = new Transaction(50.0m, DateTime.Now);
+
+            Assert.AreEqual(TransactionType.Income, transaction.TransactionType);
+        }
+
+        [TestMethod]
+        public void ShouldSetTransactionTypeToExpense()
+        {
+            var transaction = new Transaction(-654.54m, DateTime.Now);
+
+            Assert.AreEqual(TransactionType.Expense, transaction.TransactionType);
+        }
+
+        [TestMethod]
+        public void ShouldNotChangeTransactionTypeIfTransfer()
+        {
+            var transaction = new Transaction(85.6m, DateTime.Now);
+            transaction.TransactionType = TransactionType.Transfer;
+
+            transaction.Amount = -56.547m;
+
+            Assert.AreEqual(TransactionType.Transfer, transaction.TransactionType);
+        }
+
+        [TestMethod]
+        public void ShouldSetTransactionTypeToExpenseIfAmountIsZero()
+        {
+            var transaction = new Transaction(0, DateTime.Now);
+
+            Assert.AreEqual(TransactionType.Expense, transaction.TransactionType);
         }
     }
 }
