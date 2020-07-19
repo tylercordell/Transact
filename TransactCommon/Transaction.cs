@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TransactionModule
+namespace TransactCommon
 {
     public class Transaction
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace TransactionModule.Test
+namespace TransactCommon.Test
 {
     [TestClass]
     public class TransactionTest
